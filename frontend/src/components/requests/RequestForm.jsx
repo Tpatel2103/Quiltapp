@@ -24,6 +24,10 @@ function RequestForm({ initialValues, onSubmit, submitLabel, onCancel }) {
       setValues((prev) => ({ ...prev, [name]: event.target.value }));
   }
 
+  // Ken Yong Code Review: I like that the form validates all required fields before submitting
+  // and gives the user a clear error message when information is missing.
+  // This helps prevent incomplete request data from being submitted.
+
   async function handleSubmit(event) {
     event.preventDefault();
     const missing = [

@@ -180,6 +180,8 @@ function OfferForm({ initialValues, onSubmit, submitLabel, onCancel }) {
         <label htmlFor="of-contact" className="form-label">
           How can people who claim a spot reach you?
         </label>
+        {/*  Ken Yong Code Review: Again, very good in using aria-describedby to connect the contact field with its help text. 
+             I also like that the message reminds users not to enter their street address which helps protect user privacy.*/}
         <input
           id="of-contact"
           className="form-control"

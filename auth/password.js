@@ -10,6 +10,11 @@ export async function hashPassword(password) {
   return { salt, passwordHash: key.toString("hex") };
 }
 
+// Ken Yong Code Review: I am impress on your security thoughts on this project
+// which using crypto.timingSafeEqual() when comparing password hashes.
+// This is not only avoids using a normal string comparison
+// but also helps protect the password verification process from timing attacks!
+
 export async function verifyPassword(password, salt, passwordHash) {
   const key = await scrypt(password, salt, KEY_LENGTH);
   const stored = Buffer.from(passwordHash, "hex");

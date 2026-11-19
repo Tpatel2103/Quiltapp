@@ -76,6 +76,11 @@ function MyRequestsPage() {
     }
   }
 
+  // Ken Yong Code Review: Nothing wrong here. When I read until here,
+  // I was thinking may be we can consider adding try/catch here like you did in handleStatusChange() and handleDelete().
+  // If submitting a rating fails, this would let you show the error message to the user instead of leaving the failed request unhandled.
+  // Again, nothing wrong here. Just a small suggestion.
+
   async function handleRate(request, rating) {
     await apiFetch(`/api/requests/${request._id}/rating`, {
       method: "POST",

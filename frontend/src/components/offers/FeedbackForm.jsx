@@ -8,6 +8,8 @@ function FeedbackForm({ offererName, onSubmit }) {
   const [comment, setComment] = useState("");
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
+  // Ken Yong Code Review: I noticed that you using React's useId() hook to create a unique ID for the comment field.
+  // This correctly connects the label to the textarea without relying on a hard coded ID. Sweet.
   const commentId = useId();
 
   async function handleSubmit(event) {

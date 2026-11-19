@@ -47,6 +47,10 @@ function AuthProvider({ children }) {
     setUser(null);
   }, []);
 
+  // Ken Yong Code Review: Awesome! You are using useMemo() for the authentication context value along with useCallback()
+  // for the authentication functions. This helps keep the context value stable instead of creating
+  // new function references unnecessarily on every render! Good job!
+
   const value = useMemo(
     () => ({ user, checking, login, register, logout }),
     [user, checking, login, register, logout],

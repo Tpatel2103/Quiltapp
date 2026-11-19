@@ -5,6 +5,9 @@ import "./StarRating.css";
 function StarRating({ value, onChange, label = "Rating" }) {
   const stars = [1, 2, 3, 4, 5];
 
+  // Ken Yong Code Review: Good use of aria-label here to provide a text description of the star rating for screen-reader users
+  // instead of relying only on the visual star symbols.
+
   if (!onChange) {
     return (
       <span

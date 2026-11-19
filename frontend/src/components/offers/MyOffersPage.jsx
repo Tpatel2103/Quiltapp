@@ -53,6 +53,11 @@ function MyOffersPage() {
     }
   }
 
+  // Ken Yong Code Review: This is jsut a suggestion, nothing wrong.
+  // May be we can consider using a custom confirmation dialog instead of window.confirm().
+  // This will give you more control over the styling and make the delete confirmation
+  // feel more consistent with the rest of the application. Again, you did a good job!
+
   async function handleDelete(offer) {
     if (!window.confirm(`Delete “${offer.title}”? This can't be undone.`))
       return;

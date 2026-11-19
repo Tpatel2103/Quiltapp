@@ -92,6 +92,10 @@ export async function deleteRequest(id) {
   return result.deletedCount === 1;
 }
 
+// Ken Yong Code Review:
+// This is awesome! I like that the helper assignment checks status: "open" and helper: null as part of the findOneAndUpdate query.
+// This makes the claim operation atomic and helps prevent two users from claiming the same request at the same time.
+
 // Atomic: only succeeds while the request is still open and has no helper,
 // so two people can't both claim the same request.
 export async function assignHelper(id, user) {

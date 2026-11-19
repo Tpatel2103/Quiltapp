@@ -15,6 +15,10 @@ function OfferFilters({ filters, onChange }) {
     return (event) => onChange({ ...filters, [name]: event.target.value });
   }
 
+  // Ken Yong Code Review: Just a small suggestion, nothing wrong with what you currently doing.
+  // May be we can consider storing the default filter values in a constant instead of repeating them here.
+  // This could make the defaults easier to maintain if the filter options change later.
+
   function handleClear() {
     setSearchText("");
     onChange({ search: "", category: "", area: "", sort: "soonest" });

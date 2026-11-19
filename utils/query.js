@@ -7,6 +7,10 @@ export function parsePage(value) {
   return Number.isInteger(page) && page > 0 ? page : 1;
 }
 
+// Ken Yong Code Review: The regex checks that the date follows the YYYY-MM-DD format,
+// but JavaScript may normalize some invalid calendar dates instead of rejecting them.
+// Consider also verifying that the parsed year, month, and day match the original input so invalid dates are rejected.
+
 // Dates arrive as "YYYY-MM-DD". Storing them at noon UTC keeps the
 // calendar day stable across time zones.
 export function parseDateOnly(value) {

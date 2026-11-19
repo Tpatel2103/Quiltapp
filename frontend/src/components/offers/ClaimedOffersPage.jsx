@@ -45,6 +45,12 @@ function ClaimedOffersPage() {
     }
   }
 
+  // Ken Yong Code Review: Similar to the other comment about using try/catch.
+  // We may consider adding error handling to handleFeedback() like you did in handleRelease().
+  // If the feedback request fails because of a server or network problem, the user currently may not receive a clear error message.
+  // Keeping API error handling consistent would make the application more reliable and provide better feedback to the user.
+  // Again, nothing wrong here! Good job on your work! :)
+
   async function handleFeedback(offer, feedback) {
     await apiFetch(`/api/offers/${offer._id}/feedback`, {
       method: "POST",

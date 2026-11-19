@@ -7,6 +7,11 @@ export async function findUserByUsername(username) {
   return users().findOne({ username: String(username).toLowerCase() });
 }
 
+// Ken Yong Code Review: Noticed that you are using MongoDB projection here to exclude the password hash
+// and salt when retrieving a user.
+// This helps prevent sensitive authentication data from being returned when it is not needed.
+// Good job on thinking about the data privacy!
+
 export async function findUserById(id) {
   if (!ObjectId.isValid(id)) return null;
   return users().findOne(
